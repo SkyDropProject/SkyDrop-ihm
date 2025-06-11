@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import {
-  Edit,
+  Create,
   SimpleForm,
   TextInput,
   NumberInput,
@@ -8,14 +9,12 @@ import {
   ImageField,
   SelectInput,
 } from "react-admin";
-import { useEffect, useState } from "react";
-import Category from "../types/Category.ts";
 import axios from "axios";
-import { API_URL } from "../config.ts";
+import Category from "../types/Category";
 import { getAuthHeaders } from "../utils.tsx";
-import ProductEditImageField from "./ProductEditImageField.tsx";
+import { API_URL } from "../config";
 
-export const ProductEdit = () => {
+export const ProductCreate = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   useEffect(() => {
     const fetchCategories = async () => {
@@ -30,11 +29,10 @@ export const ProductEdit = () => {
     };
     fetchCategories();
   }, []);
+
   return (
-    <Edit>
+    <Create>
       <SimpleForm>
-        <TextInput source="id" label="Id du produit" disabled />
-        <ProductEditImageField apiUrl={API_URL} />
         <ImageInput source="image" label="Image produit">
           <ImageField source="src" title="title" />
         </ImageInput>
@@ -52,6 +50,6 @@ export const ProductEdit = () => {
         />
         <BooleanInput source="star" label="Vedette" />
       </SimpleForm>
-    </Edit>
+    </Create>
   );
 };
