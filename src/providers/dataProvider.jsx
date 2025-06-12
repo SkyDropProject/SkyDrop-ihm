@@ -1,0 +1,49 @@
+import productDataProvider from "./productDataProvider.jsx";
+import droneDataProvider from "./droneDataProvider.jsx";
+import categoryDataProvider from "./categoryDataProvider.jsx";
+
+const dataProvider = {
+  getList: (resource, params) => {
+    if (resource === "Produit")
+      return productDataProvider.getList(resource, params);
+    if (resource === "Drone")
+      return droneDataProvider.getList(resource, params);
+    if (resource === "Catégories")
+      return categoryDataProvider.getList(resource, params);
+    throw new Error("Ressource inconnue");
+  },
+  getOne: (resource, params) => {
+    if (resource === "Produit")
+      return productDataProvider.getOne(resource, params);
+    if (resource === "Drone") return droneDataProvider.getOne(resource, params);
+    if (resource === "Catégories")
+      return categoryDataProvider.getOne(resource, params);
+    throw new Error("Ressource inconnue");
+  },
+  create: (resource, params) => {
+    if (resource === "Produit")
+      return productDataProvider.create(resource, params);
+    if (resource === "Drone") return droneDataProvider.create(resource, params);
+    if (resource === "Catégories")
+      return categoryDataProvider.create(resource, params);
+    throw new Error("Ressource inconnue");
+  },
+  update: (resource, params) => {
+    if (resource === "Produit")
+      return productDataProvider.update(resource, params);
+    if (resource === "Drone") return droneDataProvider.update(resource, params);
+    if (resource === "Catégories")
+      return categoryDataProvider.update(resource, params);
+    throw new Error("Ressource inconnue");
+  },
+  delete: (resource, params) => {
+    if (resource === "Produit")
+      return productDataProvider.delete(resource, params);
+    if (resource === "Drone") return droneDataProvider.delete(resource, params);
+    if (resource === "Catégories")
+      return categoryDataProvider.delete(resource, params);
+    throw new Error("Ressource inconnue");
+  },
+};
+
+export default dataProvider;

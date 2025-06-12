@@ -1,19 +1,20 @@
+// src/product/DroneShow.tsx
 import {
-  List,
-  Datagrid,
+  Show,
+  SimpleShowLayout,
   TextField,
   NumberField,
   BooleanField,
 } from "react-admin";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Category from "../types/Category";
 import CategoryNameField from "../category/CategoryNameField";
 import ProductImageField from "./ProductImageField.tsx";
-import { getAuthHeaders } from "../utils.tsx";
 import { API_URL } from "../config";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { getAuthHeaders } from "../utils.tsx";
+import Category from "../types/Category";
 
-export const ProductList = () => {
+const ProductShow = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   useEffect(() => {
     const fetchCategories = async () => {
@@ -29,16 +30,19 @@ export const ProductList = () => {
     fetchCategories();
   }, []);
   return (
-    <List>
-      <Datagrid rowClick="show">
+    <Show>
+      <SimpleShowLayout>
+        <TextField source={"id"} />
         <ProductImageField apiUrl={API_URL} label="Image produit" />
         <TextField source="name" label="Nom" />
         <NumberField source="price" label="Prix" />
         <TextField source="description" />
-        <NumberField source="weight" label={"Poids"} />
-        <BooleanField source="star" label={"Vedette"} />
+        <NumberField source="weight" label="Poids" />
+        <BooleanField source="star" label="Vedette" />
         <CategoryNameField categories={categories} label="Catégorie" />
-      </Datagrid>
-    </List>
+      </SimpleShowLayout>
+    </Show>
   );
 };
+
+export default ProductShow;

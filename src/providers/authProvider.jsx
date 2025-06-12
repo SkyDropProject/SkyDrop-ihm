@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "./config";
+import { API_URL } from "../config.js";
 
 const authProvider = {
   async login({ username, password }) {
@@ -8,7 +8,7 @@ const authProvider = {
       password,
     };
     try {
-      const response = await axios.post(`${API_URL}/user/login`, payload);
+      const response = await axios.post(`${API_URL}/user/admin/login`, payload);
       localStorage.setItem("token", response.data.token);
       return Promise.resolve();
     } catch (error) {

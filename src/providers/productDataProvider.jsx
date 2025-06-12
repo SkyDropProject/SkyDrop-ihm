@@ -1,24 +1,7 @@
 import axios from "axios";
 
-import { API_URL } from "./config";
-
-const mapIdTo_Id = (data) => {
-  if (!data) return data;
-  const { id, ...rest } = data;
-  return id !== undefined ? { _id: id, ...rest } : data;
-};
-
-const map_IdToId = (data) => {
-  if (Array.isArray(data)) {
-    return data.map(({ _id, __v, ...rest }) => ({ ...rest, id: _id }));
-  }
-  const { _id, __v, ...rest } = data;
-  return { ...rest, id: _id };
-};
-const getAuthHeaders = () => {
-  const token = localStorage.getItem("token");
-  return token ? { token: `${token}` } : {};
-};
+import { API_URL } from "../config.js";
+import { getAuthHeaders, map_IdToId } from "../utils/utils.js";
 
 const productDataProvider = {
   getList: async () => {
