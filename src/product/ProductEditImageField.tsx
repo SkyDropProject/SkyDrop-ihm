@@ -27,7 +27,7 @@ const ProductEditImageField = ({ apiUrl }: { apiUrl: string }) => {
     return () => {
       if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
-  }, [apiUrl, record?.imageUrl]);
+  }, [apiUrl, record, record?.imageUrl]);
 
   if (!imageUrl) return null;
   return (
