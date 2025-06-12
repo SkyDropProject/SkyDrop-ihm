@@ -17,6 +17,10 @@ import ProductShow from "./product/ProductShow.tsx";
 import CategoryList from "./category/CategoryList.tsx";
 import CategoryCreate from "./category/CategoryCreate.tsx";
 import { CategoryEdit } from "./category/CategoryEdit.tsx";
+import TransactionList from "./transaction/TransactionList.tsx";
+import TransactionShow from "./transaction/TransactionShow.tsx";
+import UserShow from "./user/UserShow.tsx";
+import UserList from "./user/UserList.tsx";
 
 const i18nProvider = polyglotI18nProvider(() => frenchMessages, "fr");
 
@@ -50,6 +54,12 @@ export const App = () => (
       edit={CategoryEdit}
     />
 
-    <Resource name="Transaction" />
+    <Resource
+      name="Transactions"
+      list={TransactionList}
+      show={TransactionShow}
+    />
+
+    <Resource name="Utilisateur" list={UserList} show={UserShow} />
   </Admin>
 );

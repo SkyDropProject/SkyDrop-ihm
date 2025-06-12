@@ -1,6 +1,8 @@
 import productDataProvider from "./productDataProvider.jsx";
 import droneDataProvider from "./droneDataProvider.jsx";
 import categoryDataProvider from "./categoryDataProvider.jsx";
+import transactionDataProvider from "./transactionDataProvider.jsx";
+import userDataProvider from "./userDataProvider.jsx";
 
 const dataProvider = {
   getList: (resource, params) => {
@@ -10,6 +12,11 @@ const dataProvider = {
       return droneDataProvider.getList(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.getList(resource, params);
+    if (resource === "Transactions")
+      return transactionDataProvider.getList(resource, params);
+    if (resource === "Utilisateur")
+      return userDataProvider.getList(resource, params);
+
     throw new Error("Ressource inconnue");
   },
   getOne: (resource, params) => {
@@ -18,6 +25,10 @@ const dataProvider = {
     if (resource === "Drone") return droneDataProvider.getOne(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.getOne(resource, params);
+    if (resource === "Transactions")
+      return transactionDataProvider.getOne(resource, params);
+    if (resource === "Utilisateur")
+      return userDataProvider.getOne(resource, params);
     throw new Error("Ressource inconnue");
   },
   create: (resource, params) => {
@@ -26,6 +37,8 @@ const dataProvider = {
     if (resource === "Drone") return droneDataProvider.create(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.create(resource, params);
+    // if (resource === "Transactions")
+    //   return transactionDataProvider.create(resource, params);
     throw new Error("Ressource inconnue");
   },
   update: (resource, params) => {
@@ -34,6 +47,8 @@ const dataProvider = {
     if (resource === "Drone") return droneDataProvider.update(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.update(resource, params);
+    // if (resource === "Transactions")
+    //   return transactionDataProvider.update(resource, params);
     throw new Error("Ressource inconnue");
   },
   delete: (resource, params) => {
