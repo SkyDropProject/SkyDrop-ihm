@@ -49,5 +49,7 @@ export const App = () => (
       create={CategoryCreate}
       edit={CategoryEdit}
     />
+
+    <Resource name="Transaction" />
   </Admin>
 );
