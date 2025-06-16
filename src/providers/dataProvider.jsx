@@ -42,8 +42,6 @@ const dataProvider = {
     if (resource === "Drone") return droneDataProvider.create(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.create(resource, params);
-    // if (resource === "Transactions")
-    //   return transactionDataProvider.create(resource, params);
     throw new Error("Ressource inconnue");
   },
   update: (resource, params) => {
@@ -54,8 +52,6 @@ const dataProvider = {
       return categoryDataProvider.update(resource, params);
     if (resource === "Commandes")
       return orderDataProvider.update(resource, params);
-    // if (resource === "Transactions")
-    //   return transactionDataProvider.update(resource, params);
     throw new Error("Ressource inconnue");
   },
   delete: (resource, params) => {
@@ -64,6 +60,8 @@ const dataProvider = {
     if (resource === "Drone") return droneDataProvider.delete(resource, params);
     if (resource === "Catégories")
       return categoryDataProvider.delete(resource, params);
+    if (resource === "Commandes")
+      return orderDataProvider.delete(resource, params);
     throw new Error("Ressource inconnue");
   },
 };

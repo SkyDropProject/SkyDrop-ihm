@@ -28,6 +28,12 @@ const orderDataProvider = {
     });
     return { data: map_IdToId(response.data) };
   },
+  delete: async (resource, params) => {
+    const response = await axios.delete(`${API_URL}/order/${params.id}`, {
+      headers: getAuthHeaders(),
+    });
+    return { data: map_IdToId(response.data) };
+  },
 };
 
 export default orderDataProvider;

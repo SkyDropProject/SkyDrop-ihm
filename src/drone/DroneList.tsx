@@ -1,6 +1,11 @@
 import { Datagrid, List, TextField, useRecordContext } from "react-admin";
 
-const CoordinatesField = () => {
+interface CoordinatesFieldProps {
+  label?: string;
+}
+
+// eslint-disable-next-line no-empty-pattern
+const CoordinatesField = ({}: CoordinatesFieldProps) => {
   const record = useRecordContext<{
     coordinates?: { x?: number; y?: number };
   }>();
