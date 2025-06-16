@@ -29,6 +29,7 @@ const droneDataProvider = {
 
   update: async (resource, params) => {
     const payload = {
+      status: params.data.status,
       name: params.data.name,
       _id: params.data.id,
     };

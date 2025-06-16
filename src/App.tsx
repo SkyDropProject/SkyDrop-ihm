@@ -21,6 +21,9 @@ import TransactionList from "./transaction/TransactionList.tsx";
 import TransactionShow from "./transaction/TransactionShow.tsx";
 import UserShow from "./user/UserShow.tsx";
 import UserList from "./user/UserList.tsx";
+import OrderList from "./order/OrderList.tsx";
+import OrderShow from "./order/OrderShow.tsx";
+import { OrderEdit } from "./order/OrderEdit.tsx";
 
 const i18nProvider = polyglotI18nProvider(() => frenchMessages, "fr");
 
@@ -58,6 +61,13 @@ export const App = () => (
       name="Transactions"
       list={TransactionList}
       show={TransactionShow}
+    />
+
+    <Resource
+      name={"Commandes"}
+      list={OrderList}
+      show={OrderShow}
+      edit={OrderEdit}
     />
 
     <Resource name="Utilisateur" list={UserList} show={UserShow} />
