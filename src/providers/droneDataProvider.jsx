@@ -29,11 +29,12 @@ const droneDataProvider = {
 
   update: async (resource, params) => {
     const payload = {
+      coordinates: params.data.coordinates,
       status: params.data.status,
       name: params.data.name,
-      _id: params.data.id,
+      _id: params.id,
     };
-    const response = await axios.put(`${API_URL}/drone/${params.id}`, payload, {
+    const response = await axios.post(`${API_URL}/drone`, payload, {
       headers: getAuthHeaders(),
     });
     return { data: map_IdToId(response.data) };
