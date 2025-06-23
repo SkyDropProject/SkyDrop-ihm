@@ -2,6 +2,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY tsconfig.app.json ./
@@ -10,8 +12,8 @@ COPY index.html ./
 COPY public ./public
 COPY src ./src
 
-RUN npm install
-RUN npm run build
+RUN pnpm install
+RUN pnpm run build
 
 FROM node:20-alpine
 
