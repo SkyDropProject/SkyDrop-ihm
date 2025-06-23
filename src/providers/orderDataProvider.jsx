@@ -20,10 +20,10 @@ const orderDataProvider = {
   update: async (resource, params) => {
     const payload = {
       status: params.data.status,
-      name: params.data.name,
-      _id: params.data.id,
+      _id: params.id,
+      droneId: params.data.droneId._id,
     };
-    const response = await axios.put(`${API_URL}/order/${params.id}`, payload, {
+    const response = await axios.post(`${API_URL}/order`, payload, {
       headers: getAuthHeaders(),
     });
     return { data: map_IdToId(response.data) };
