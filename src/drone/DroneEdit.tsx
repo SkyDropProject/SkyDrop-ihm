@@ -12,7 +12,10 @@ export const DroneEdit = () => {
       <SimpleForm>
         <TextInput source="id" label="Id du produit" disabled />
         <TextInput source="name" label="Nom" />
-        <SelectInput source="status" choices={["waiting", "available"]} />
+        <SelectInput
+          source="status"
+          choices={["waiting", "available", "pending", "returning"]}
+        />
         <NumberInput source="coordinates.x" label="Latitude" />
         <NumberInput source="coordinates.y" label="Longitude" />
       </SimpleForm>
