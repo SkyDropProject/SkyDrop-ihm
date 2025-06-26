@@ -1,6 +1,5 @@
 import {
   Edit,
-  NumberField,
   NumberInput,
   SelectInput,
   SimpleForm,
@@ -13,7 +12,10 @@ export const OrderEdit = () => {
       <SimpleForm>
         <TextInput source="id" label="Id du produit" disabled />
         <NumberInput source="price" label="Prix" />
-        <SelectInput source="status" choices={["created", "finished"]} />
+        <SelectInput
+          source="status"
+          choices={["created", "finished", "cancelled"]}
+        />
       </SimpleForm>
     </Edit>
   );
