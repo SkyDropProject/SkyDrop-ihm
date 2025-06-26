@@ -20,6 +20,10 @@ const droneDataProvider = {
   create: async (resource, params) => {
     const payload = {
       name: params.data.name,
+      coordinates: {
+        x: 44.3,
+        y: 4.1,
+      },
     };
     const response = await axios.put(`${API_URL}/drone`, payload, {
       headers: getAuthHeaders(),
